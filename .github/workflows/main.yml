@@ -1,0 +1,23 @@
+name: CI for Login Page
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify files exist
+        run: |
+          ls
+          test -f index.html
+          test -f index.css
+
+      - name: CI check completed
+        run: echo "Login page CI check passed"
